@@ -1,42 +1,39 @@
 @import "tailwindcss";
-@tailwind components;
-@tailwind utilities;
 
-:root {
-  
-  --base-background: #121214;
-  --base-shape-principal: #202024;
-  --base-shape-secundaria: #29292E;
-  --base-shape-terciaria: #323238;
-  --base-placeholder: #7C7C8A;
-  --base-text: #C4C4CC;
-  --base-title: #E1E1E6;
-  --white: #FFFFFF;
 
-  --green-dark: #015F43;
-  --green: #00875F;
-  --green-light: #00B37E;
-  --red-dark: #AA2834;
-  --red: #F75A68;
+@theme {
+  --color-base-background: #121214;
+  --color-base-shape-principal: #202024;
+  --color-base-shape-secundaria: #29292E;
+  --color-base-shape-terciaria: #323238;
+  --color-base-placeholder: #7C7C8A;
+  --color-base-text: #C4C4CC;
+  --color-base-title: #E1E1E6;
+  --color-white: #FFFFFF;
+  --color-green-dark: #015F43;
+  --color-green: #00875F;
+  --color-green-light: #00B37E;
+  --color-red-dark: #AA2834;
+  --color-red: #F75A68;
 }
 
-* {
+@layer base{
+  * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  background-color: var(--base-background);
-  color: var(--base-text) ;
-  -webkit-font-smoothing: antialiased;
+  body {
+    background-color: var(--color-base-shape-principal);
+    color: var(--color-base-text) ;
+    -webkit-font-smoothing: antialiased;
 }
 
 body, input, textarea, button {
   font: 400 1rem Roboto, sans-serif;
 }
+}
 
-@layer {
-  .h1 {
-    @apply text-2xl text-red-600
-  }
+@layer components{
+
 }
