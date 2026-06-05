@@ -35,5 +35,19 @@ body, input, textarea, button {
 }
 
 @layer components{
-
+  .SummaryCard {
+    @apply bg-base-shape-secundaria rounded-sm p-8 
+  }
+  .HeaderSummaryCard{
+    @apply flex items-center justify-between text-gray-300
+  }
+  .StrongSummaryCard{
+    @apply block mt-4 text-3xl
+  }
+  .MainContainer{
+    @apply max-w-[1120px] mx-auto px-6 w-full
+  }
+  .TdTableTransactions{
+    @apply py-5 px-8 bg-base-shape-terciaria 
+  }
 }
