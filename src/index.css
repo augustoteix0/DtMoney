@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  
+  --base-background: #121214;
+  --base-shape-principal: #202024;
+  --base-shape-secundaria: #29292E;
+  --base-shape-terciaria: #323238;
+  --base-placeholder: #7C7C8A;
+  --base-text: #C4C4CC;
+  --base-title: #E1E1E6;
+  --white: #FFFFFF;
+
+  --green-dark: #015F43;
+  --green: #00875F;
+  --green-light: #00B37E;
+  --red-dark: #AA2834;
+  --red: #F75A68;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--base-background);
+  color: var(--base-text) ;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, button {
+  font: 400 1rem Roboto, sans-serif;
+}
+
+@layer {
+  .h1 {
+    @apply text-2xl text-red-600
+  }
+}
