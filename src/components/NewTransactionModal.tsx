@@ -8,6 +8,8 @@ import * as Dialog from "@radix-ui/react-dialog";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
+import { useContext } from "react";
+import { TransactionContext } from "../contexts/TransactionsContext";
 
 const newTransactionSchema = z.object({
   description: z.string(),
@@ -19,18 +21,29 @@ const newTransactionSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionSchema>;
 
 export function NewTransactionModal() {
+  const { createTransactions } = useContext(TransactionContext);
+
   const {
     control,
     register,
     handleSubmit,
     formState: { isSubmitting },
+    reset,
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionSchema),
   });
 
   async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(data);
+    const { description, price, category, type } = data;
+
+    await createTransactions({
+      description,
+      price,
+      category,
+      type,
+    });
+
+    reset();
   }
 
   return (
