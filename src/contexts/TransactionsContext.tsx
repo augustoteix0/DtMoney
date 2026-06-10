@@ -10,20 +10,28 @@ interface Transaction {
 }
 
 interface TransactionContextType {
-    transactions: Transaction[] 
+    transactions: Transaction[],
+    fetchTransactions: (query?: string) => Promise<void>
 }
 
 interface TransactionsProviderProps {
     children: ReactNode
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const TransactionContext = createContext({} as TransactionContextType)
 
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
     const [transactions, setTransactions] = useState<Transaction[]>([]);
     
-      async function loadTransactions() {
-        const response = await fetch('http://localhost:3333/transactions')
+      async function fetchTransactions(query?: string) {
+        const url = new URL('http://localhost:3333/transactions')
+
+        if(query) {
+          url.searchParams.append('q', query)
+        }
+
+        const response = await fetch(url.toString())
         const data = await response.json()
     
         setTransactions(data)
@@ -31,12 +39,12 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     
       useEffect(() => {
         // eslint-disable-next-line react-hooks/set-state-in-effect
-        loadTransactions()
+        fetchTransactions()
       }, [])
     
 
     return (
-        <TransactionContext.Provider value={{ transactions }}>
+        <TransactionContext.Provider value={{ transactions, fetchTransactions }}>
             {children}
         </TransactionContext.Provider>
     )
