@@ -13,11 +13,11 @@ export function Transactions() {
     })
 
   return (
-    <div>
+    <div className="MainContainer mt-12 px-4 md:px-0 max-w-full overflow-x-hidden">
       <Header />
       <Summary />
 
-      <div className="MainContainer mt-12 px-4 overflow-x-auto">
+      <div className="w-full max-w-full overflow-x-auto mt-5">
         <SearchForm />
         <table className="w-full min-w-[600px] [border-collapse:separate] [border-spacing:0_0.5rem] mt-5">
           <tbody className="w-full">
