@@ -17,7 +17,7 @@ export function Transactions() {
       <Header />
       <Summary />
 
-      <div className="MainContainer mt-12">
+      <div className="MainContainer mt-12 px-4 overflow-auto">
         <SearchForm />
         <table className="w-full [border-collapse:separate] [border-spacing:0_0.5rem] mt-5">
           <tbody>
