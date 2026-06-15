@@ -3,7 +3,7 @@ import { MagnifyingGlassIcon } from "@phosphor-icons/react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { TransactionContext } from "../../../contexts/TransactionsContext";
-import { useContext } from "react";
+import { useContextSelector } from "use-context-selector";
 
 const SearchFormSchema = z.object({
   query: z.string(),
@@ -12,7 +12,9 @@ const SearchFormSchema = z.object({
 type SearchFormInputs = z.infer<typeof SearchFormSchema>;
 
 export function SearchForm() {
-    const { fetchTransactions } = useContext(TransactionContext)
+    const fetchTransactions  = useContextSelector(TransactionContext, (context)=> {
+      return context.fetchTransactions
+    })
 
 
   const { register, handleSubmit, formState: {isSubmitting} } = useForm<SearchFormInputs>({
