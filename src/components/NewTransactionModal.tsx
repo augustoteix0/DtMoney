@@ -55,7 +55,7 @@ export function NewTransactionModal() {
     <Dialog.Portal>
       <Dialog.Overlay className="fixed w-full h-full inset-0 bg-[rgba(0,0,0,0.75)]" />
 
-      <Dialog.Content className="min-w-[32rem] rounded-md py-3 px-3.5 bg-base-shape-secundaria fixed top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]">
+      <Dialog.Content className="w-[calc(100%-2rem)] max-w-[32rem] rounded-md py-6 px-6 bg-base-shape-secundaria fixed top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]">
         <Dialog.Title>Nova Transação</Dialog.Title>
 
         <Dialog.Close className="absolute bg-transparent border-0 top-2 right-2 leading-0 cursor-pointer text-base-text">
