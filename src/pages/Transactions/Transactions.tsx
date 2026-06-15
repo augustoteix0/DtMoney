@@ -17,10 +17,10 @@ export function Transactions() {
       <Header />
       <Summary />
 
-      <div className="MainContainer mt-12 px-4">
+      <div className="MainContainer mt-12 px-4 overflow-x-auto">
         <SearchForm />
-        <table className="w-full [border-collapse:separate] [border-spacing:0_0.5rem] mt-5">
-          <tbody className="overflow-auto">
+        <table className="w-full min-w-[600px] [border-collapse:separate] [border-spacing:0_0.5rem] mt-5">
+          <tbody className="w-full">
             {transactions.map((item) => (
               <tr key={item.id}>
                 <td className="TdTableTransactions rounded-tl-md rounded-bl-md">
