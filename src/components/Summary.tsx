@@ -6,7 +6,7 @@ export function Summary() {
     const summary = useSummary()
 
     return (
-        <div className="MainContainer grid grid-cols-3 gap-4 mt-[-5rem]">
+        <div className="MainContainer grid grid-cols-1 md:grid-cols-3 gap-4 mt-[-5rem]"> 
             <div className="SummaryCard">
                 <header className="HeaderSummaryCard">
                     <span>Entradas</span>
